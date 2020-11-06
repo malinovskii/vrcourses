@@ -1,0 +1,344 @@
+@import "mixins.sass"
+// Global styles
+
+*
+    box-sizing: border-box
+    
+    outline: none
+
+html
+    scroll-behavior: smooth
+
+body 
+    margin: 0
+    padding: 0
+    font-family: 'Raleway', sans-serif
+
+ul
+    list-style: none
+
+.container
+    width: 95%
+    margin: 0 auto
+    height: 100%
+
+.section
+    height: 100vh
+    padding-top: 2rem
+    
+
+.section__content
+    padding: 0 4rem
+    
+
+    @media screen and ( max-width: 500px )
+        padding: 0 1rem
+
+.text-center
+    text-align: center
+
+.w-100
+    width: 100%
+
+
+        
+
+h1,h2,h3,h4,h5,h6 
+    font-family: 'Roboto', sans-serif
+
+.main-title
+    @include responsive-font($pcSize: 56, $mobSize: 24)
+
+.subtitle
+    @include responsive-font($pcSize: 36, $mobSize: 24)
+    text-align: center
+   
+.button
+    padding: .5rem 1rem
+    border-radius: 10px
+    border: none
+    font-weight: normal
+    font-family: 'Raleway', sans-serif
+    transition: .3s ease
+    cursor: pointer
+    transition: .3s ease
+    
+
+.button-primary
+    color: white
+    background: black
+
+    &:hover
+        background: none
+        color: black
+        border: 1px solid black
+// End Global styles
+
+
+.navbar 
+    display: flex
+    position: fixed
+    top: 0
+    z-index: 100
+    width: 100%;
+    justify-content: space-between
+    align-items: center
+    background-color: white
+    color: black
+    box-shadow: 0 5px 15px rgba(0,0,0,.1)
+
+.brand-title 
+    font-size: 1.5rem
+    margin: .5rem 2rem
+    font-weight: bolder
+
+
+
+.navbar-links 
+    height: 100%
+    margin-right: 2rem
+    font-weight: normal
+    
+
+
+.navbar-links ul 
+    display: flex
+    margin: 0
+    padding: 0
+
+
+.navbar-links li 
+    list-style: none
+    display: flex
+    justify-content: center
+    align-items: center
+
+
+.navbar-links li a
+    display: block
+    text-decoration: none
+    color: black
+    padding: 1rem
+    transition: .3s ease
+
+.navbar-links li button
+    
+    margin: 0 .5rem
+
+
+.navbar-links li a:hover 
+    background-color: whitesmoke
+
+
+.toggle-button 
+    position: absolute
+    top: .75rem
+    right: 1rem
+    display: none
+    flex-direction: column
+    justify-content: space-between
+    width: 30px
+    height: 21px
+
+
+.toggle-button .bar 
+    height: 3px
+    width: 100%
+    background-color: black
+    border-radius: 10px
+
+
+@media (max-width: 800px) 
+    .navbar 
+        flex-direction: column
+        align-items: flex-start
+    
+
+    .toggle-button 
+        display: flex
+    
+    .navbar-links 
+        display: none
+        width: 100%
+    
+
+    .navbar-links ul 
+        width: 100%
+        flex-direction: column
+
+    .navbar-links ul li 
+        text-align: center
+    
+
+    .navbar-links ul li a 
+        padding: .5rem 1rem
+    
+
+    .navbar-links.active 
+        display: flex
+    
+
+.header
+    width: 100%
+    position: relative
+    overflow: hidden
+    background-image: url(../img/bg.svg)
+    background-size: cover
+    
+    @media screen and (max-width: 600px)
+        background-position: -70%
+    
+    .container
+
+        .header__content
+            height: 100%
+            width: 100%
+            display: flex
+            align-items: center
+            padding: 0 4rem
+
+            @media screen and (max-width: 600px)
+                justify-content: center
+                padding: 0
+                text-align: center
+
+           
+            .header__text
+                @media screen and (max-width: 600px)
+                    color: white
+                    background: rgba(0,0,0,.3)
+                    padding: 1.2rem 1rem
+                .header__info
+                    width: 500px
+                    line-height: 2rem
+                    @include responsive-font($pcSize: 20, $mobSize: 14)
+
+                    @media screen and (max-width: 600px)
+                        width: 100%
+
+                .header__button
+                    height: 50px
+                    width: 200px
+                    margin-top: 1rem
+                    background:#3D47AC
+                    font-weight: 500
+                    font-size: 18px
+                    color: white
+                
+                    &:hover 
+                        background:#79D3FE
+
+
+
+.goals
+    padding: 2rem 0 1rem 0
+    box-shadow: 15px 15px 20px rgba(0,0,0,.1)
+
+    .goals__list
+        width: 100%
+        padding: 0
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        .goals__item
+            margin: 2rem auto
+            width: 300px
+
+            h3
+                @include responsive-font($pcSize: 24, $mobSize: 18)
+            
+
+            i
+                font-size: 48px
+
+            p
+                @include responsive-font($pcSize: 20, $mobSize: 14)
+                line-height: 1.5em
+                width: 90%
+                
+.most-featured
+    padding-top: 2rem
+
+    blockquote
+        width: 100%
+        
+    .course__list
+        margin: 0 auto
+        width: 100%
+        padding: 1rem 0
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        .course__item
+            margin: 0 auto
+            width: 300px
+            height: 500px
+            margin-top: 2rem
+
+            .course__image
+                width: 300px
+                height: 300px
+            .course__title
+                @include responsive-font($pcSize: 24, $mobSize: 18)
+            .course__info
+                @include responsive-font($pcSize: 20, $mobSize: 14)
+            .course__button
+                margin-top: .5rem
+
+.join-now
+    padding: 4rem 1rem
+    @media screen and ( max-width: 550px )
+        padding: 0 1rem 2rem
+        
+
+    .container
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+
+        h2 
+            @include responsive-font($pcSize: 36, $mobSize: 24)
+            width: 75%
+
+        button
+            padding: 1rem 2rem
+            @include responsive-font($pcSize: 18, $mobSize: 14)
+
+.footer
+    padding: 3rem 0
+    background-color: #F2F2F2
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .footer__menu
+        padding: 0
+        display: flex
+        justify-content: center
+        margin: 0 auto
+
+        li
+            padding: 1rem 1rem
+
+            a
+                text-decoration: none
+                color: black
+
+    .footer__circles
+        width: 100%
+        padding: 0
+        display: flex
+        justify-content: center
+
+        li
+            margin: 2rem 1rem 0 1rem
+            width: 50px
+            height: 50px
+            border: 1px solid black
+            border-radius: 50%
+
+            @media screen and ( max-width: 550px )
+                width: 40px
+                height: 40px
